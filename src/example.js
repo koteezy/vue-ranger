@@ -28,9 +28,9 @@ new Vue( {
         grzIsValid: false,
         grzValidate: {
             params: {
-                '0': 'letter,ru',
+                '0': 'letter,en',
                 '1-4': 'digit',
-                '4-6': 'letter,ru',
+                '4-6': 'letter,en',
                 '6-9': 'digit',
             },
         },
