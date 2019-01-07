@@ -18,6 +18,7 @@ import { ranger, vueRanger } from '../src/install';
 // },
 // } );
 
+
 new Vue( {
     directives: {ranger},
     components: {vueRanger},
