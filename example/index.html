@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Vue Ranger Example</title>
+   <!--<link rel="stylesheet" href="./style.css">-->
+</head>
+<body>
+
+<div id="app">
+   <br><br>
+   <p>Use as directive, without messages.</p>
+   <input v-model="grz" type="text" v-ranger="grzValidate">
+   <p>{{ grzValidStatus }}</p>
+   <br><br>
+
+   <br><br>
+   <p>Use as directive, with messages.</p>
+   <input @error="grzError" @success="grzSuccess" v-model="grz" type="text" v-ranger="grzValidate">
+   <p>Error message: {{ grzMessage }}</p>
+   <p>{{ grzValidStatus }}</p>
+   <br><br>
+
+   <p>Use as component, with custom error slot</p>
+   <vue-ranger
+           @error="grzError"
+           @success="grzSuccess"
+           :settings="grzValidate"
+           v-model="grz">
+      <div slot-scope="{message}" slot="error">
+         {{ message }}
+      </div>
+   </vue-ranger>
+   <p>{{ grzValidStatus }}</p>
+
+   <br><br>
+   <p>Use as component, with default error slot</p>
+   <vue-ranger
+           @error="grzError"
+           @success="grzSuccess"
+           :settings="grzValidate"
+           v-model="grz">
+   </vue-ranger>
+   <p>{{ grzValidStatus }}</p>
+</div>
+<script src="../dist/example.min.js"></script>
+</body>
+</html>
